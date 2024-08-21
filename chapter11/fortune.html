@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fortune Cookie (Exercise)</title>
+<script>
+
+// Open the fortune cookie
+let fortune = fortuneCookie();
+console.log(`Your Fortune: ${fortune}`);
+
+function fortuneCookie() {
+	function rand(max) {
+		return Math.floor(Math.random() * max);
+	}
+
+	function getFortune() {
+		const fortunes = [
+			"Good things come to those who wait.",
+			"A surprise is waiting for you around the corner.",
+			"Embrace change; it brings new opportunities.",
+			"Your hard work will soon pay off.",
+			"A journey begins with a single step.",
+		];
+
+		let i = rand(fortunes.length);
+		return fortunes[i];
+	}
+
+	let fortune = getFortune();
+	return fortune;
+}
+</script>
+</head>
+<body> </body>
+</html>
+

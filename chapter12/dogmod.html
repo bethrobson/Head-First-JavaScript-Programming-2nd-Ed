@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modifying dogs made from the Dog class</title>
+<script>
+
+class Dog {
+	constructor(name, breed, weight) {
+		this.name = name;
+		this.breed = breed;
+		this.weight = weight;
+	}
+	bark() {
+		if (this.weight > 25) {
+			console.log(`${this.name} says Woof!`);
+		} else {
+			console.log(`${this.name} says Yip!`);
+		}
+	}
+}
+
+// Dogs
+let fido = {name: "Fido", breed: "Mixed", weight: 38}; 
+let rover = new Dog("Rover", "German Shephard", 90);
+let spot = new Dog("Spot", "Chihuahua", 10);
+
+fido.owner = "Bob";
+delete fido.weight;
+
+fido.trust = function(person) {
+	return (person === "Bob");
+};
+console.log(`Does Fido trust Bob? ${fido.trust("Bob")}`);
+let notBite = fido.trust("Bob");
+console.log(`Will Fido bite Bob? ${notBite}`);
+
+notBite = spot.trust("Bob");
+console.log(`Will Spot bite Bob? ${notBite}`);
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

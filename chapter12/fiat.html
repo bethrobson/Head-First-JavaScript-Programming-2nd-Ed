@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Object literals with getters and setters</title>
+<script>
+
+let fiat = {
+	make: "Fiat", 
+	model: "500", 
+	year: 1957, 
+	color: "Medium Blue",
+	passengers: 2, 
+	convertible: false, 
+	mileage: 88000,
+	started: false,
+	get km() { return this.mileage * 1.60934; },
+	set km(newKm) { this.mileage = newKm / 1.60934; },
+	start() {
+		this.started = true;
+	},
+	stop() {
+		this.started = false;
+	},
+	drive() {
+		if (this.started) {
+			console.log(`${this.make} ${this.model} goes zoom zoom!`);
+		} else {
+			console.log("Start the engine first.");
+		}
+	}
+};
+
+console.log(`The fiat has ${ fiat.km } kms on it.`);
+fiat.start();
+fiat.drive();
+fiat.stop();
+
+// for USA:
+//fiat.mileage = 88020;
+
+// for Europe:
+fiat.km = 141641;
+
+console.log(`The fiat has ${ fiat.km } kms on it.`);
+console.log(`The fiat has ${ fiat.mileage } miles on it.`);
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

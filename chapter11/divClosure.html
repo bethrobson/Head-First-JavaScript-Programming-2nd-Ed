@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Click me!</title>
+<style> 
+	body, button { margin: 10px; } 
+	div { padding: 10px; }
+</style>
+<script>
+
+/*
+//
+// The version without the closure...
+//
+let count = 0;
+window.onload = function() {
+	let button = document.getElementById("clickme");
+	button.onclick = handleClick;
+};
+
+function handleClick() {
+	let message = "You clicked me ";
+	let div = document.getElementById("message");
+	count++;
+	div.innerHTML = message + count + " times!";
+}
+*/
+
+//
+// The version with the closure.
+//
+window.onload = function() {
+	let count = 0; 
+	let message = "You clicked me ";
+	let div = document.getElementById("message");
+
+	let button = document.getElementById("clickme");
+	button.onclick = function() {
+		count++;
+		div.innerHTML = message + count + " times!";
+	};
+};
+
+</script> 
+</head> 
+<body>
+	<button id="clickme">Click me!</button>
+	<div id="message"></div>
+</body>
+</html>
+

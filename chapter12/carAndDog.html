@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Car and Dog Exercise</title>
+<script>
+
+class Car {
+	constructor(params) {
+		this.make = params.make;
+		this.model = params.model;
+		this.year = params.year;
+		this.color = params.color;
+		this.passengers = params.passengers;
+		this.convertible = params.convertible;
+		this.mileage = params.mileage;
+	}
+	get km() { return this.mileage * 1.60934; }
+	set km(newKm) { this.mileage = newKm / 1.60934; }
+	start() {
+		this.started = true;
+	}
+	stop() {
+		this.started = false;
+	}
+	drive() {
+		if (this.started) {
+			console.log(`${this.make} ${this.model} goes zoom zoom!`);
+		} else {
+			console.log("Start the engine first.");
+		}
+	}
+}
+
+class Dog {
+	constructor(name, breed, weight) {
+    	this.name = name;
+    	this.breed = breed;
+    	this.weight = weight;
+	}
+    bark() {
+        if (this.weight > 25) {
+            alert(this.name + " says Woof!");
+        } else {
+            alert(this.name + " says Yip!");
+        }
+    }
+}
+
+let limoParams = {make: "Webville Motors",
+                  model: "limo", 
+                  year: 1983, 
+                  color: "black", 
+                  passengers: 12, 
+                  convertible: true, 
+                  mileage: 21120};
+
+let limo = new Car(limoParams);
+let limoDog = new Dog("Rhapsody In Blue", "Poodle", 40);
+
+console.log(`${limo.make} ${limo.model} is a ${typeof limo}`);
+console.log(`${limoDog.name} is a ${typeof limoDog}`);
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

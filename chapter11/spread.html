@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spread</title>
+<script>
+
+let numbers = [1, 2, 3, 4];
+function sum(a, b, c, d) {
+	console.log("The answer is", a + b + c + d);
+}
+
+sum(...numbers);
+
+let values1 = [5, 6];
+let values2 = [7, 8];
+
+sum(...values1, ...values2);
+
+sum(...values1, 9, 10);
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

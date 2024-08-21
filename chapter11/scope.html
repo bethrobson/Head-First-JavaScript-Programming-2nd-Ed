@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scope: from most nested to least</title>
+<script>
+
+let a = 1;
+
+function first() {
+	let b = 2;
+	let second = () => {
+		let c = 3;
+		return (a + b + c);
+	};
+	return (second());
+}
+console.log("Result: ", first());
+
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

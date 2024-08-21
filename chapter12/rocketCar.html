@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Car Class and Rocket Car</title>
+<script>
+
+class Car {
+	constructor(make, model, year, color, passengers, convertible, mileage) {
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.color = color;
+		this.passengers = passengers;
+		this.convertible = convertible;
+		this.mileage = mileage;
+		this.started = false;
+	}
+	start() {
+		this.started = true;
+		console.log(`The ${this.make} ${this.model} has started`);
+	}
+	stop() {
+		this.started = false;
+		console.log(`The ${this.make} ${this.model} has stopped`);
+	}
+	drive() {
+		if (this.started) {
+			console.log(`${this.make} ${this.model} goes zoom zoom!`);
+		} else {
+			console.log(`You need to start the ${this.make} ${this.model} first`);
+		}
+	}
+	brake() {
+		console.log(`The ${this.make} ${this.model} is braking`);
+	}
+}
+
+class RocketCar extends Car {
+	constructor(make, model, year, color, passengers, convertible, mileage) {
+		super(make, model, year, color, passengers, convertible, mileage);
+		this.thrustOn = false;
+	}
+	drive() {
+		super.drive();
+		if (this.thrustOn) {
+			console.log(`And the ${this.make} ${this.model} rocket thruster is on`);
+		}
+	}
+	thrust() {
+		if (!this.thrustOn) {
+			this.thrustOn = true;
+		} else {
+			this.thrustOn = false;
+		}
+	}
+}
+
+let rocketCar = new RocketCar("Estes", "Centurion", 1963, "blue", 
+                              0, false, 300000000);
+rocketCar.start();
+rocketCar.thrust();
+rocketCar.drive();
+rocketCar.brake();
+rocketCar.stop();
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

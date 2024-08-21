@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dog Catcher</title>
+<script>
+
+class Dog {
+	constructor(name, breed, weight) {
+		this.name = name;
+		this.breed = breed;
+		this.weight = weight;
+	}
+	bark() {
+		if (this.weight > 25) {
+			console.log(`${this.name} says Woof!`);
+		} else {
+			console.log(`${this.name} says Yip!`);
+		}
+	}
+}
+
+class Cat {
+	constructor(name, breed, weight) {
+    	this.name = name;
+    	this.breed = breed;
+    	this.weight = weight;
+	}
+}
+
+function dogCatcher(obj) {
+	if (obj instanceof Dog) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+// Cats
+let meow = new Cat("Meow", "Siamese", 10); 
+let whiskers = new Cat("Whiskers", "Mixed", 12); 
+
+// Dogs
+let fido = {name: "Fido", breed: "Mixed", weight: 38}; 
+let fluffy = new Dog("Fluffy", "Poodle", 30);
+let spot = new Dog("Spot", "Chihuahua", 10);
+
+let pets = [meow, whiskers, fido, fluffy, spot];
+
+for (let i = 0; i < pets.length; i++) {
+    if (dogCatcher(pets[i])) {
+        console.log(`${pets[i].name} is a dog!`);
+    }
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Coffee Constructor</title>
+<script>
+
+class Coffee {
+	constructor(roast, ounces) {
+		this.roast = roast;
+		this.ounces = ounces;
+	}
+	getSize() {
+		if (this.ounces === 8) {
+			return "small";
+		} else if (this.ounces === 12) {
+			return "medium";
+		} else if (this.ounces === 16) {
+			return "large";
+		}
+	}
+	toString() {
+		return (`You've ordered a ${this.getSize()} ${this.roast} coffee.`);
+	}
+}
+
+let coffee = new Coffee("House Blend", 12);
+console.log(coffee.toString());
+
+let darkRoast = new Coffee("Dark Roast", 16);
+console.log(darkRoast.toString());
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

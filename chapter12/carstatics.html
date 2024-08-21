@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Counting Car Production</title>
+<script>
+
+let cars = [];
+
+class Car {
+	static counter = 0;
+	constructor(params) {
+		this.make = params.make;
+		this.model = params.model;
+		this.year = params.year;
+		this.color = params.color;
+		this.passengers = params.passengers;
+		this.convertible = params.convertible;
+		this.mileage = params.mileage;
+		this.started = false;
+		Car.counter++;
+	}
+	static getCounter() { return Car.counter; }
+	static resetCounter() { Car.counter = 0; }
+	get km() { return this.mileage * 1.60934; }
+	set km(newKm) { this.mileage = newKm / 1.60934; }
+	start() {
+		this.started = true;
+	}
+	stop() {
+		this.started = false;
+	}
+	drive() {
+		if (this.started) {
+			console.log(`${this.make} ${this.model} goes zoom zoom!`);
+		} else {
+			console.log("Start the engine first.");
+		}
+	}
+	brake() {
+		console.log(`The ${this.make} ${this.model} is braking`);
+	}
+}
+
+let fiatParams = {
+	make: "Fiat", model: "500", year: 1957, color: "Medium Blue",
+	passengers: 2, convertible: false, mileage: 88000
+};
+let fiat = new Car(fiatParams);
+cars.push(fiat);
+
+class Taxi extends Car {
+	constructor(params) {
+		super(params);
+		this.occupied = false;
+		this.fare = params.fare;
+	}
+
+	hail() {
+		if (!this.occupied) {
+			console.log(`The ${this.make} ${this.model} is here`);
+			this.occupied = true;
+		} else {
+			console.log(`Sorry this ${this.make} ${this.model} is busy`);
+		}
+	}
+
+	pay() {
+		if (this.occupied) {
+			console.log(`The ${this.make} ${this.model} says that will be \$${this.fare.toFixed(2)}`);
+			this.occupied = false;
+		} else {
+			console.log(`The ${this.make} ${this.model} has no customers`);
+		}
+	}
+}
+
+let taxiParams = {
+	make: "Webville Motors", model: "Taxi", year: 1961, color: "Yellow",
+	passengers: 3, convertible: false, mileage: 7340, fare: 2.50
+};
+let taxi = new Taxi(taxiParams);
+cars.push(taxi);
+
+
+class RocketCar extends Car {
+	constructor(params) {
+		super(params);
+		this.thrustOn = false;
+	}
+	drive() {
+		super.drive();
+		if (this.thrustOn) {
+			console.log(`And the ${this.make} ${this.model} rocket thruster is on`);
+		}
+	}
+	thrust() {
+		if (!this.thrustOn) {
+			this.thrustOn = true;
+		} else {
+			this.thrustOn = false;
+		}
+	}
+}
+
+let rocketCarParams = {
+	make: "Estes", model: "Centurion", year: 1963, color: "Blue",
+	passengers: 0, convertible: false, mileage: 300000000
+};
+let rocketCar = new RocketCar(rocketCarParams);
+cars.push(rocketCar);
+
+console.log("How many cars have we made?", Car.getCounter());
+cars.forEach(car => console.log(`${car.make} ${car.model} ${car.year}`));
+
+// use only if needed to do a "factory reset"!
+Car.resetCounter();
+console.log("How many cars have we made?", Car.getCounter());
+
+// remake the rocketCar
+rocketCar = new RocketCar(rocketCarParams);
+console.log("How many cars have we made?", Car.getCounter()); // should be 1
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+

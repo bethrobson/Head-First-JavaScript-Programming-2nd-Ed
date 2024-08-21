@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Counter Object closure</title>
+<script>
+
+function createCounter() {
+	let count = 0; 
+
+	return {
+		increment() {
+			count += 1;
+		},
+		getValue() {
+			return count;
+		},
+		clear() {
+			count = 0;
+		}
+	};
+}
+
+let counter = createCounter();
+counter.increment();
+console.log(counter.getValue());
+counter.increment();
+console.log(counter.getValue());
+counter.clear();
+console.log(counter.getValue());
+
+</script> 
+</head> 
+<body>
+</body>
+</html>
+

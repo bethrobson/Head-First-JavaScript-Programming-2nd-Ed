@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fortune Cookie (Closure)</title>
+<script>
+
+function createFortuneCookies() {
+	const fortunes = [
+		"Good things come to those who wait.",
+		"A surprise is waiting for you around the corner.",
+		"Embrace change; it brings new opportunities.",
+		"Your hard work will soon pay off.",
+		"A journey begins with a single step.",
+	];
+
+	function rand(max) {
+		return Math.floor(Math.random() * max);
+	}
+
+	function getAFortune() {
+		let i = rand(fortunes.length);
+		return fortunes[i];
+	}
+
+	return getAFortune;
+}
+
+// Make a bag of fortuneCookies
+let getFortune = createFortuneCookies();
+// Pull one out and open it!
+console.log(`Your Fortune: ${ getFortune() }`);
+
+</script>
+</head>
+<body> </body>
+</html>
+

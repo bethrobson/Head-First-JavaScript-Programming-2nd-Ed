@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Greetings!</title>
+<script>
+
+function greeting(message="Howdy", recipient="Earthling") {
+	console.log(message, recipient);
+}
+
+greeting();
+greeting("Hello");
+greeting(undefined, "Sam");
+greeting("Hello", "Sam");
+
+function greeting2(message, ...recipients) {
+	recipients.forEach(r => console.log(message, r));
+}
+greeting2("Howdy", "Judy", "Joe", "Frank", "Jim");
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

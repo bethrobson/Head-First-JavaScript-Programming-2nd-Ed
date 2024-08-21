@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Construct some dogs with methods</title>
+<script>
+
+let fido1 = {
+	name: "Fido",
+	breed: "Mixed",
+	weight: 38,
+	bark: function() {
+		if (this.weight > 25) {
+			console.log(`${this.name} says Woof!`);
+		} else {
+			console.log(`${this.name} says Yip!`);
+		}
+	}
+};
+
+function DogOld(name, breed, weight) {
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+	this.bark = function() {
+		if (this.weight > 25) {
+			console.log(this.name + " says Woof!");
+		} else {
+			console.log(this.name + " says Yip!");
+		}
+	}
+}
+
+class Dog {
+	constructor(name, breed, weight) {
+    	this.name = name;
+    	this.breed = breed;
+    	this.weight = weight;
+	}
+	bark() {
+		if (this.weight > 25) {
+			console.log(this.name + " says Woof!");
+		} else {
+			console.log(this.name + " says Yip!");
+		}
+	}
+} 
+let fido = new Dog("Fido", "Mixed", 38);
+let fluffy = new Dog("Fluffy", "Poodle", 30);
+let spot = new Dog("Spot", "Chihuahua", 10);
+let dogs = [fido, fluffy, spot];
+
+/*
+for(let i = 0; i < dogs.length; i++) {
+    let size = "small";
+    if (dogs[i].weight > 10) {
+        size = "large";
+    }
+    console.log(`Dog: ${dogs[i].name} is a ${size} ${dogs[i].breed}`);
+}
+*/
+
+dogs.forEach(dog => dog.bark());
+
+</script>
+</head>
+<body>
+</body>
+</html>

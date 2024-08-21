@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Extreme JavaScript Challenge</title>
+<script>
+//
+// Use the comments to test each Specimen separately.
+//
+
+//
+// Specimen #1
+//
+/*
+let secret = "007";
+
+function getSecret() {
+	let secret = "008";
+
+	function getValue() {
+		return secret;
+	}
+
+	return getValue();
+}
+
+let result = getSecret();
+console.log(result);
+*/
+
+//
+// Specimen #2
+//
+let secret = "007";
+
+function getSecret() {
+	let secret = "008";
+
+	function getValue() {
+		return secret;
+	}
+
+	return getValue;
+}
+
+let getValueFun = getSecret();
+let result = getValueFun();
+console.log(result);
+
+</script>
+</head>
+<body> </body>
+</html>
+

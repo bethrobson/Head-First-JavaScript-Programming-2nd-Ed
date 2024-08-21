@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Syntax (Exercise)</title>
+<script>
+
+let arr = [1, 2, 3, 4, 5];
+
+function foo(a = 3, b = 2, c = 1) {
+	output = `${a} ${b} ${c}`;
+	console.log(output);
+}
+
+function bar(a, b, ...c) {
+	foo(...c);
+}
+
+bar(...arr);
+bar(1, 2);
+bar();
+
+</script> 
+</head> 
+<body>
+</body>
+</html>
+

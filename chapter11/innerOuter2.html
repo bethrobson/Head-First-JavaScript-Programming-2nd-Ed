@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Return a function</title>
+<script>
+
+function outerFunction() {
+	let outerVariable = "I'm outside!";
+
+	function innerFunction() {
+		let innerVariable = "I'm inside!";
+		console.log(innerVariable);
+		console.log(outerVariable);
+	}
+
+	console.log(outerVariable);
+	return innerFunction;
+}
+
+let inner = outerFunction();
+inner();
+
+</script>
+</head>
+<body> </body>
+</html>
+

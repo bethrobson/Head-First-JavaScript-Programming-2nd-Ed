@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Construct some dogs</title>
+<script>
+
+class Dog {
+	constructor(name, breed, weight) {
+    	this.name = name;
+    	this.breed = breed;
+    	this.weight = weight;
+	}
+}
+let fido = new Dog("Fido", "Mixed", 38);
+let fluffy = new Dog("Fluffy", "Poodle", 30);
+let spot = new Dog("Spot", "Chihuahua", 10);
+let dogs = [fido, fluffy, spot];
+
+dogs.forEach(dog => console.log(dog));
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

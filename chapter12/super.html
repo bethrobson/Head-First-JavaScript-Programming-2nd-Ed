@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Static properties and methods in Widgets</title>
+<script>
+
+class Widget {
+	static counter = 0;
+	instanceField = "Webville Widgets";
+	#privateField = "Private Widget name";
+
+	constructor(type) {
+		this.type = type;
+		Widget.prototype.pField = "I'm a prototype field";
+		Widget.counter++;
+	}
+	toString() {
+		console.log(this.#privateField);
+		return `${ this.type } is a Widget with pField ${ this.pField }`;
+	}
+	static getCounter() {
+		return Widget.counter;
+	}
+}
+
+class SubWidget extends Widget {
+	constructor(type, value) {
+		super(type);
+		this.value = value;
+	}
+	fields() {
+		console.log(`Instance field: ${this.instanceField}`);
+		console.log(`Prototype field: ${ this.pField }`);
+		
+	}
+}
+
+let widget = new Widget("green");
+let subWidget = new SubWidget("blue", 2.50);
+
+console.log(`Widget: ${widget.toString()}, counter: ${ Widget.getCounter() }`);
+console.log(`Sub widget: ${subWidget.toString()}, counter: ${ SubWidget.getCounter() }`);
+subWidget.fields();
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

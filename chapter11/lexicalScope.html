@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lexical Scope</title>
+<script>
+
+let justAVar = "Oh, don't worry about it, I'm GLOBAL";
+
+function whereAreYou() {
+	let justAVar = "Just an every day LOCAL";
+
+	if (true) {
+		let justAVar = "Ooh, I'm a statement BLOCK local";
+		return justAVar;
+	}
+
+	return justAVar;
+}
+
+let result = whereAreYou();
+console.log(result);
+
+function outerFunction() {
+	let outerVariable = "I'm outside!";
+
+	function innerFunction() {
+		let innerVariable = "I'm inside!";
+		console.log(innerVariable);
+		console.log(outerVariable);
+	}
+
+	console.log(outerVariable);
+	console.log(innerVariable);
+	innerFunction();
+}
+
+outerFunction();
+
+</script>
+</head>
+<body> </body>
+</html>
+

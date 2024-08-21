@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Calculator that does only two things</title>
+<script>
+
+function calculator(op, num1, num2) {
+	let result;
+
+	function multiply() {
+		let val = num1 * num2;
+		return val;
+	}
+
+	function divide() {
+		if (num2 !== 0) {
+			let val = num1 / num2;
+			return val;
+		} else {
+			return "Cannot divide by zero!";
+		}
+	}
+
+	if (op == "*") {
+		result = multiply();
+	} else if (op == "/") {
+		result = divide();
+	} else {
+		console.log("I can only multiply or divide!");
+	}
+	return result;
+}
+
+// Use the calculator
+console.log(`2 * 3 = ${calculator("*", 2, 3)}`);
+console.log(`6 / 2 = ${calculator("/", 6, 2)}`);
+
+
+</script>
+</head>
+<body> </body>
+</html>
+

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Greetings, with closures!</title>
+<script>
+
+function createGreeting(greeting) {
+	return function(name) {
+		return `${greeting} ${name}!`;
+	};
+}
+
+let sayHello = createGreeting("Hello");
+console.log(sayHello("Ben")); 
+let sayBonjour = createGreeting("Bonjour");
+console.log(sayBonjour("Marie"));
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

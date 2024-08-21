@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Static properties and methods in Widgets</title>
+<script>
+
+class Widget {
+	static counter = 0;
+
+	constructor(type) {
+		this.type = type;
+		Widget.counter++;
+	}
+
+	static getCounter() {
+		return Widget.counter;
+	}
+}
+
+let widgets = [];
+
+console.log("Counter:", Widget.counter); // counter should be 0
+let greenWidget = new Widget("green");
+widgets.push(greenWidget);
+console.log("Counter:", Widget.getCounter()); // counter should be 1
+
+// what if we try accessing the static property and method from an object?
+//console.log("Green widget counter:", greenWidget.counter); // undefined
+//console.log("Green widget getCounter():", greenWidget.getCounter()); // fail
+// comment out these two lines above to see the rest of the code work
+
+let blueWidget = new Widget("blue");
+widgets.push(blueWidget);
+console.log("Counter:", Widget.getCounter()); // counter should be 2
+
+let redWidget = new Widget("red");
+widgets.push(redWidget);
+console.log("Counter:", Widget.getCounter()); // counter should be 3
+
+widgets.forEach(widget => console.log(widget.type));
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

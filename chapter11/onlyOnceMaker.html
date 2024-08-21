@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Only Once Challenge</title>
+<script>
+
+function sayHelloOnceMaker() {
+	let calls = 0;
+
+	// function to run once
+	function sayHello() {
+		console.log("hello");
+	}
+
+	function run() {
+		if (calls < 1) {
+			sayHello();
+		}
+		calls++;
+	}
+
+	return run;
+}
+
+let sayHello = sayHelloOnceMaker();
+
+sayHello();
+sayHello();
+
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

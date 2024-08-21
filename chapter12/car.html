@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Car Class</title>
+<script>
+
+class Car {
+	constructor(make, model, year, color, passengers, convertible, mileage) {
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.color = color;
+		this.passengers = passengers;
+		this.convertible = convertible;
+		this.mileage = mileage;
+		this.started = false;
+	}
+	start() {
+		this.started = true;
+		console.log(`The ${this.make} ${this.model} has started`);
+	}
+	stop() {
+		this.started = false;
+		console.log(`The ${this.make} ${this.model} has stopped`);
+	}
+	drive() {
+		if (this.started) {
+			console.log(`${this.make} ${this.model} goes zoom zoom!`);
+		} else {
+			console.log(`You need to start the ${this.make} ${this.model} first`);
+		}
+	}
+	brake() {
+		console.log(`The ${this.make} ${this.model} is braking`);
+	}
+}
+
+let chevy = new Car("Chevy", "Bel Air", 1957, "red", 2, false, 1021);
+let cadi = new Car("GM", "Cadillac", 1955, "tan", 5, false, 12892);
+let fiat = new Car("Fiat", "500", 1957, "Medium Blue", 2, false, 88000);
+
+let cars = [chevy, cadi, fiat];
+
+cars.forEach(car => {
+    car.drive();
+    car.start();
+    car.drive();
+	car.brake();
+    car.drive();
+    car.stop();
+});
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
