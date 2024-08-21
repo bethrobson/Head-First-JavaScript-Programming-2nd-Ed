@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arrow functions</title>
+<script>
+
+window.onload = function() {
+	let p1 = document.getElementById("clickme1");
+	let p2 = document.getElementById("clickme2");
+
+	p1.onclick = function() {
+		console.log("(1) This is:", this);
+	};
+
+	p2.onclick = () => console.log("(2) This is:", this);
+
+	let o = {
+		clickMe1: function() {
+			console.log("(1) o, this is", this);
+		},
+		clickMe2: () => {
+			console.log("(2) o, this is", this);
+		}
+	};
+	o.clickMe1();
+	o.clickMe2();
+};
+
+</script> 
+</head> 
+<body> 
+<p id="clickme1">
+This is paragraph 1. Click me!
+</p>
+<p id="clickme2">
+This is paragraph 2. Click me!
+</p>
+</body>
+</html>
+

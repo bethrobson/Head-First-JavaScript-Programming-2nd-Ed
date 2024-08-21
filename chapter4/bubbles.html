@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bubble Factory Test Lab</title>
+<script>
+let scores = [60, 50, 60, 58, 54, 54,
+              58, 50, 52, 54, 48, 69,
+              34, 55, 51, 52, 44, 51,
+              69, 64, 66, 55, 52, 61,
+              46, 31, 57, 52, 44, 18,
+              41, 53, 55, 61, 51, 44];
+
+for (let i = 0; i < scores.length; i = i + 1) {
+	let output = "Bubble solution #" + i + " score: " + scores[i];
+	console.log(output);
+}
+// Can't do this:
+//console.log("There are " + i + " bubble solutions in scores");
+
+//
+// with a while loop
+//
+let i = 0;
+let highScore = 0;
+while (i < scores.length) {
+	console.log("Bubble solution #" + i + " score: " + scores[i]);
+	if (scores[i] > highScore) {
+		highScore = scores[i];
+	}
+	i = i + 1;
+}
+console.log("Bubbles tests: " + scores.length);
+console.log("Highest bubble score: " + highScore);
+
+//
+// with a for loop
+//
+for (let i = 0; i < scores.length; i++) {
+	console.log("Bubble solution #" + i + " score: " + scores[i]);
+	if (scores[i] > highScore) {
+		highScore = scores[i];
+	}
+}
+console.log("Bubbles tests: " + scores.length);
+console.log("Highest bubble score: " + highScore);
+
+//
+// find the best solution
+//
+let bestSolutions = [];
+for (let i = 0; i < scores.length; i++) {
+	if (scores[i] == highScore) {
+		bestSolutions.push(i);
+	}
+}
+console.log("Solutions with the highest score: " + bestSolutions);
+
+
+// Actually you can do it one loop. 
+// But it's more complex. Here's how:
+/*
+for (let i = 0; i < scores.length; ++i) {
+	let output = "Bubble solution #" + i + " score:" + scores[i];
+	console.log(output);
+	if (scores[i] > highScore){
+		highScore = scores[i];
+		bestSolutions = [i];
+	} else if (scores[i] == highScore){
+		bestSolutions.push(i);
+	}
+}
+console.log("Best solutions: " + bestSolutions);
+*/
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modules</title>
+</head> 
+<body> 
+<h1>Webville Taxi Services</h1>
+<p>
+The best taxis on the web!
+</p>
+<p id="taxis"></p>
+<script type="module">
+import { createFleet, taxiCompany } from "./taxi.js";
+
+function displayTaxis(fleet) {
+	let p = document.getElementById("taxis");
+	fleet.forEach(taxi => {
+		p.innerHTML += `Model: ${ taxi.model }<br>`;
+		p.innerHTML += `Medallion: ${ taxi.medallion }<br>`;
+		p.innerHTML += `Miles: ${ taxi.miles }<br>`;
+		p.innerHTML += `<hr>`;
+	});
+}
+let fleet = createFleet(3, 0);
+fleet[0].trip(23);
+console.log(fleet);
+
+//let taxi = new Taxi("Really Great Taxi", 0); // causes an error!
+
+console.log(taxiCompany);
+
+</script>
+</body>
+</html>
+

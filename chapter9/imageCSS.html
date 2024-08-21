@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> Image Guess </title>
+  <style>
+	body { margin: 20px; }
+	img { margin: 20px; }
+	.blur { filter: blur(20px); }
+  </style>
+  <script>
+	window.onload = function() {
+		let images = document.getElementsByTagName("img");
+		for (let i = 0; i < images.length; i++) {
+			images[i].onmouseover = showAnswer;
+			images[i].onmouseout = reblur;
+		}
+	};
+	function showAnswer(eventObj) {
+		let image = eventObj.target;
+		// remove blur class
+		image.setAttribute("class", "");
+	}
+
+	function reblur(eventObj) {
+		let image = eventObj.target;
+		// add blur class
+		image.setAttribute("class", "blur");
+	}
+  </script>
+</head>
+<body>
+	<img id="zero" class="blur" src="zero.jpg">
+	<img id="one" class="blur" src="one.jpg">
+	<img id="two" class="blur" src="two.jpg">
+	<img id="three" class="blur" src="three.jpg">
+	<img id="four" class="blur" src="four.jpg">
+	<img id="five" class="blur" src="five.jpg">
+</body>
+</html>

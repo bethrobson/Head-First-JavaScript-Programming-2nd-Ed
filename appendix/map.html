@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Using a Map to track dogs </title>
+  <script>
+let breeds = new Map();
+breeds.set("Mixed", 3);
+breeds.set("Poodle", 2);
+breeds.set("Chihuahua", 1);
+
+class Dog {
+	constructor(name, breed, weight) {
+		this.name = name;
+		this.breed = breed;
+		this.weight = weight;
+	}
+	bark() {
+		console.log(`${this.name} says Woof Woof!`);
+	}
+}
+function countDogsByBreed(dogs) {
+	const dogBreedMap = new Map();
+	dogs.forEach(dog => {
+		let count = dogBreedMap.get(dog.breed) || 0;
+		dogBreedMap.set(dog.breed, count+1);
+	});
+	return dogBreedMap;
+}
+
+let fido = new Dog("Fido", "Mixed", 35);
+let spot = new Dog("Spot", "Chihuahua", 10);
+let fluffy = new Dog("Fluffy", "Poodle", 30);
+let rover = new Dog("Rover", "Mixed", 29);
+let max = new Dog("Max", "Poodle", 22);
+let frankie = new Dog("Frankie", "Mixed", 38);
+
+let dogsInShow = [ fido, spot, fluffy, rover, max, frankie ];
+
+let breedMap = countDogsByBreed(dogsInShow);
+breedMap.forEach((count, breed) => 
+	console.log(`There are ${count} dogs of ${breed} breed in the show`)
+);
+console.log("Number of poodles in the show:", breedMap.get("Poodle"));
+console.log("Number of different breeds in the show:", breedMap.size);
+console.log("Does the show include Mixed breed dogs?", 
+				breedMap.has("Mixed") && breedMap.get("Mixed") > 0);
+
+dogsInShow = [ fido, spot, fluffy, rover, max ];
+let dogsSet = new Set(dogsInShow);
+dogsSet.add(fido); // doesn't change dogsSet because fido is already there
+dogsSet.add(frankie); // adds frankie to the set
+dogsSet.delete(max); // removes max from the set
+dogsSet.forEach(dog => console.log(dog.name)); // fido, spot, fluffy, rover, frankie
+
+  </script>
+</head>
+<body> </body>
+</html>

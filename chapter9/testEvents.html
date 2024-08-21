@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Test all the events</title>
+  <script>
+	window.onload = init;
+	function init() {
+		let p = document.getElementById("p");
+		p.addEventListener("click", handler);
+		p.addEventListener("resize", handler);
+		p.addEventListener("play", handler);
+		p.addEventListener("pause", handler);
+		p.addEventListener("load", handler);
+		p.addEventListener("unload", handler);
+		p.addEventListener("dragstart", handler);
+		p.addEventListener("drop", handler);
+		p.addEventListener("mousemove", handler);
+		p.addEventListener("mouseover", handler);
+		p.addEventListener("keypress", handler);
+		p.addEventListener("mouseout", handler);
+		p.addEventListener("touchstart", handler);
+		p.addEventListener("touchend", handler);
+	}
+	
+	function handler(eventObj) {
+		let id = eventObj.target.id;
+		console.log(`Event type: ${ eventObj.type } on ${ id }`);
+	}
+  </script>
+</head>
+<body>
+	<p id="p">Test</p>
+</body>
+</html>

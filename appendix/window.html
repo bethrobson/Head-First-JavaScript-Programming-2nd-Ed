@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> </title>
+  <script>
+window.onload = function() {
+	console.log("Width:", window.innerWidth);
+	console.log("Height:", window.innerHeight);
+
+	console.log("href (URL) location:", window.location.href);
+
+	console.log("History:", window.history);
+	console.log("Items in history:", window.history.length);
+
+	let backButton = document.getElementById("back");
+	backButton.onclick = function() {
+		// go back one in the history
+		window.history.back();
+	};
+}
+  </script>
+</head>
+<body> 
+	<button id="back">Go Back</button>
+</body>
+</html>

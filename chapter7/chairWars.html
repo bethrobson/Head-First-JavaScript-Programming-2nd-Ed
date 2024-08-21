@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chair Wars</title>
+  <script>
+// Larry, step 1
+function validateL1(phoneNumber) {
+    if (phoneNumber.length !== 8) {
+       return false;
+    }
+    for (let i = 0; i < phoneNumber.length; i++) {
+       if (i === 3) {
+           if (phoneNumber.charAt(i) !== '-') {
+              return false;
+	    }
+       } else if (isNaN(phoneNumber.charAt(i))) {
+          return false;
+       }
+    }
+    return true;
+}
+
+// Brad, step 1
+function validateB1(phoneNumber) { 
+   if (phoneNumber.length !== 8) {
+      return false;
+   }
+   let first = phoneNumber.substring(0,3);
+   let second = phoneNumber.substring(4);
+   if (phoneNumber.charAt(3) !== "-" || isNaN(first) || isNaN(second)) {
+      return false;
+   }
+   return true;
+}
+
+// Larry, step 2
+function validateL2(phoneNumber) {
+    if (phoneNumber.length  > 8 ||
+           phoneNumber.length < 7) {
+       return false;
+    }
+    for (let i = 0; i < phoneNumber.length; i++) {
+       if (i === 3) {
+           if (phoneNumber.length === 8 && 
+			phoneNumber.charAt(i) !== '-') {
+              return false;
+	    } else if (phoneNumber.length === 7 &&
+                    isNaN(phoneNumber.charAt(i))) {
+              return false;
+           }
+       } else if (isNaN(phoneNumber.charAt(i))) {
+          return false;
+       }
+    }
+    return true;
+}
+
+// Brad, step 2
+function validateB2(phoneNumber) { 
+   if (phoneNumber.length  > 8 ||
+       phoneNumber.length < 7) {
+       return false;
+   }
+   let first = phoneNumber.substring(0,3);
+   let second = phoneNumber.substring(phoneNumber.length - 4);
+
+   if (isNaN(first) || isNaN(second)) {
+      return false;
+   }
+   if (phoneNumber.length === 8) {
+      return (phoneNumber.charAt(3) === "-");
+   } 
+   return true;
+}
+
+
+// Amy
+function validateA1(phoneNumber) {
+	phoneNumber = phoneNumber.replace("-", "");
+	return ((phoneNumber.length === 7) && !isNaN(phoneNumber));
+}
+// You could also use a regular expression and get it down to 1 line!
+function validateA2(phoneNumber) { 
+   return ((phoneNumber.match(/^\d{3}-?\d{4}$/)) != null);
+}
+
+let phoneNumber = "123-4567";
+console.log("Larry, v1:", validateL1(phoneNumber));
+console.log("Brad, v1:", validateB1(phoneNumber));
+console.log("Larry, v2:", validateL2(phoneNumber));
+console.log("Brad, v2:", validateB2(phoneNumber));
+
+console.log("Amy (T):", validateA1("123-4567"));
+console.log("Amy (T):", validateA1("1234567"));
+console.log("Amy (F):", validateA1("12345678"));
+console.log("Amy (F):", validateA1("123-456"));
+console.log("Amy (F):", validateA1("123456"));
+console.log("Amy (F):", validateA1("Pizza21"));
+
+console.log("Amy, v2 (T):", validateA1("123-4567"));
+
+  </script>
+</head>
+<body>
+</body>
+</html>

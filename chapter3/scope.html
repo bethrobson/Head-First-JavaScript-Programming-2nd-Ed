@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Scope</title>
+  </head>
+  <body>
+  </body>
+  <script>
+function playTurn(player, location) {
+	let points = 0;
+	if (location == 1) {
+		let message = player + ", you just got 100 points!";
+		points = points + 100;
+		alert(message);
+	} else {
+		points = points + 5;
+	}
+	return points;
+}
+let total = playTurn("Jai", 1);
+console.log("Total: " + total);
+//console.log("Points: " + points); // error, not in scope
+//console.log("Message: " + message); // error, not in scope
+  </script>
+</body>
+</html>

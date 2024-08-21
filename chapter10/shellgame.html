@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shell Game</title>
+<script>
+
+let winner = function() { alert("WINNER!") };
+let loser = function() { alert("LOSER!") };
+// let's test as a warm up
+winner();
+// let's assign to other letiables for practice
+let a = winner;
+let b = loser;
+let c = loser;
+a();
+b();
+// now let's try your luck with a shell game
+c = a;
+a = b;
+b = c;
+c = a;
+a = c;
+a = b;
+b = c;
+a();
+
+</script> 
+</head> 
+<body> </body>
+</html>
+

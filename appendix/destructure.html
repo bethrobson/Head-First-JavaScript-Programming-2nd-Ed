@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Destructuring Assignment </title>
+  <script>
+
+// uncomment each section one at a time to try it.
+
+let colas = ["Cola", "Diet Cola", "Root Beer"];
+
+let [cola, diet, rootBeer] = colas;
+//console.log(`${cola}, ${diet}, ${rootBeer}`);
+
+//let [cola, diet, rootBeer, orange = "Orange"] = colas;
+//console.log(orange);
+
+//let [cola, ...drinks] = colas;
+//console.log(cola);
+//console.log(drinks);
+
+let fido = {
+	name: "Fido",
+	breed: "Mixed",
+	weight: 35
+};
+
+let {name, breed, weight = 30, handler = "Cookie"} = fido;
+console.log(`${name}, ${breed}, ${weight}, ${handler}`);
+
+
+//let {name, ...restOfDog} = fido;
+//console.log(name);
+//console.log(restOfDog);
+
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Object references</title>
+  <script>
+function findCarInLot(car) {
+    for (let i = 0; i < lot.length; i++) {
+        if (car === lot[i]) {
+            return i;
+        }
+    }
+    return -1;
+}
+let chevy = {
+    make: "Chevy", 
+    model: "Bel Air"
+};
+let taxi = {
+    make: "Webville Motors", 
+    model: "Taxi"
+};
+let fiat1 = {
+    make: "Fiat", 
+    model: "500"
+};
+let fiat2 = {
+    make: "Fiat", 
+    model: "500"
+};
+
+let lot = [chevy, taxi, fiat1, fiat2];
+
+let loc1 = findCarInLot(fiat2);
+let loc2 = findCarInLot(taxi);
+let loc3 = findCarInLot(chevy);
+let loc4 = findCarInLot(fiat1);
+
+console.log("Car lot:", lot);
+console.log("Location of fiat 2:", loc1);
+console.log("Location of taxi:", loc2);
+console.log("Location of chevy:", loc3);
+console.log("Location of fiat 1:", loc4);
+
+  </script>
+</head>
+<body>
+</body>
+</html>

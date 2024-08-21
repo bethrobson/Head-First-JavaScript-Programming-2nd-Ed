@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Symbols and Big Ints </title>
+  <script>
+const fidoSym = Symbol("fido");
+
+let fido = {
+	name: "Fido",
+	sym: Symbol("fido")
+};
+let fidoFake = {
+	name: "Fido",
+	sym: Symbol("fido")
+}
+console.log("Is fidoFake the real fido?", fido.sym == fidoFake.sym);
+
+// Big Numbers!
+console.log(Number.MAX_VALUE);
+console.log(Number.MAX_SAFE_INTEGER);
+
+let bn = BigInt(2 ** 309);
+console.log(bn);
+
+  </script>
+</head>
+<body> </body>
+</html>
